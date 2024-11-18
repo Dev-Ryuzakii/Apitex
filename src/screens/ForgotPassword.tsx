@@ -41,7 +41,7 @@ export const ForgotPassword: React.FC = () => {
         <custom.InputField
           leftIcon={<svg.EmailSvg />}
           rightIcon={<svg.CheckSvg />}
-          placeholder='brileyhenderson@mail.com'
+          placeholder='Enter your email address'
           containerStyle={{marginBottom: 14}}
         />
         <components.Button

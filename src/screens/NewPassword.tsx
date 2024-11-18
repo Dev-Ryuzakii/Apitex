@@ -38,7 +38,7 @@ export const NewPassword: FC = () => {
         </text.T16>
         <custom.InputField
           clickable={true}
-          placeholder='••••••••'
+          placeholder='Enter new password'
           type='password'
           leftIcon={<svg.KeySvg />}
           rightIcon={<svg.EyeOffSvg />}
@@ -47,7 +47,7 @@ export const NewPassword: FC = () => {
         <custom.InputField
           clickable={true}
           type='password'
-          placeholder='••••••••'
+          placeholder='Confirm password'
           leftIcon={<svg.KeySvg />}
           rightIcon={<svg.EyeOffSvg />}
           containerStyle={{marginBottom: 14}}

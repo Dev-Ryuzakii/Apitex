@@ -11,7 +11,6 @@ import {components} from '../components';
 
 export const SignUp: React.FC = () => {
   const {pathname} = useLocation();
-
   const navigate = hooks.useAppNavigate();
 
   useEffect(() => {
@@ -24,111 +23,93 @@ export const SignUp: React.FC = () => {
     return <components.Background />;
   };
 
-  const renderHeader = (): JSX.Element => {
-    return <components.Header goBack={true} />;
-  };
-
   const renderContent = (): JSX.Element => {
     return (
       <main
-        className='container'
-        style={{marginTop: 52, paddingTop: '18%', paddingBottom: 20, zIndex: 1}}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          padding: '0 20px',
+          zIndex: 1,
+          width: '100%',
+        }}
       >
         <text.H1 style={{marginBottom: 30}}>Sign up!</text.H1>
         <custom.InputField
           leftIcon={<svg.UserSvg />}
-          containerStyle={{marginBottom: 10}}
-          placeholder='Briley Henderson'
+          containerStyle={{
+            marginBottom: 10,
+            width: '100%',
+            maxWidth: '400px',
+          }}
+          placeholder='Enter your full name'
         />
         <custom.InputField
           leftIcon={<svg.EmailSvg />}
-          containerStyle={{marginBottom: 10}}
-          placeholder='brileyhenderson@mail.com'
+          containerStyle={{
+            marginBottom: 10,
+            width: '100%',
+            maxWidth: '400px',
+          }}
+          placeholder='Enter your email address'
         />
         <custom.InputField
           leftIcon={<svg.KeySvg />}
           rightIcon={<svg.EyeOffSvg />}
-          containerStyle={{marginBottom: 10}}
-          placeholder='••••••'
+          containerStyle={{
+            marginBottom: 10,
+            width: '100%',
+            maxWidth: '400px',
+          }}
+          placeholder='Create a password'
         />
         <custom.InputField
           leftIcon={<svg.KeySvg />}
           rightIcon={<svg.EyeOffSvg />}
-          containerStyle={{marginBottom: 14}}
-          placeholder='••••••'
+          containerStyle={{
+            marginBottom: 14,
+            width: '100%',
+            maxWidth: '400px',
+          }}
+          placeholder='Confirm Password'
         />
         <components.Button
           title='Sign up'
-          containerStyle={{marginBottom: 14}}
+          containerStyle={{
+            marginBottom: 14,
+            width: '100%',
+            maxWidth: '400px',
+          }}
           onClick={() => navigate('/VerifyYourPhoneNumber')}
         />
-        <div style={{...utils.rowCenter(), marginBottom: 40}}>
-          <text.T16 style={{marginRight: 4}}>Already have an account?</text.T16>
+          <div style={{ marginTop: 20, textAlign: 'center' }}>
+          <text.T16 style={{ marginRight: 4 }}>Already have an account?</text.T16>
           <text.T16
             onClick={() => navigate('/SignIn')}
-            style={{cursor: 'pointer', color: theme.colors.mainColor}}
+            style={{ cursor: 'pointer', color: theme.colors.mainColor, marginLeft:60 }}
           >
             Sign in.
           </text.T16>
-        </div>
-        <div>
-          <text.T16 style={{marginBottom: 14}}>
-            Sign in with social networks:
-          </text.T16>
-          {/* Socials */}
-          <div
-            style={{
-              ...utils.rowCenterSpcBtw(),
-              marginBottom: 20,
-              width: '100%',
-            }}
-          >
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.FacebookSvg />
-            </div>
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.TwitterSvg />
-            </div>
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.GoogleSvg />
-            </div>
-          </div>
         </div>
       </main>
     );
   };
 
   return (
-    <div id='screen'>
+    <div
+      id='screen'
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       {renderBackground()}
-      {renderHeader()}
+      <components.Header goBack={true} />
       {renderContent()}
     </div>
   );

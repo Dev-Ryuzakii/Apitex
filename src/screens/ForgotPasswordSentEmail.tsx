@@ -31,13 +31,14 @@ export const ForgotPasswordSentEmail: React.FC = () => {
         style={{justifyContent: 'center'}}
       >
         <svg.PadLockSvg style={{marginBottom: 30}} />
-        <text.H2 style={{marginBottom: 20, whiteSpace: 'pre-line'}}>
-          Your password has {'\n'} been reset!
-        </text.H2>
-        <text.T16 style={{marginBottom: 30}}>
-          Labore sunt culpa excepteur culpa ipsum. Labore {'\n'} occaecat ex
-          nisi mollit.
-        </text.T16>
+        <text.H2 style={{ marginBottom: 20, whiteSpace: 'pre-line' }}>
+  Password Reset {'\n'} Successful!
+</text.H2>
+<text.T16 style={{ marginBottom: 30 }}>
+  Your password has been updated successfully. {'\n'}
+  You can now log in with your new credentials.
+</text.T16>
+
         <components.Button
           title='Done'
           containerStyle={{width: '48%'}}

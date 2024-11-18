@@ -1,19 +1,18 @@
-import React, {useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import {text} from '../text';
-import {hooks} from '../hooks';
-import {svg} from '../assets/svg';
-import {components} from '../components';
+import { text } from '../text';
+import { hooks } from '../hooks';
+import { svg } from '../assets/svg';
+import { components } from '../components';
 
 export const SignUpAccountCreated: React.FC = () => {
-  const {pathname} = useLocation();
-
+  const { pathname } = useLocation();
   const navigate = hooks.useAppNavigate();
 
   useEffect(() => {
     setTimeout(() => {
-      window.scroll({top: -1, left: 0, behavior: 'smooth'});
+      window.scroll({ top: -1, left: 0, behavior: 'smooth' });
     }, 10);
   }, [pathname]);
 
@@ -28,24 +27,40 @@ export const SignUpAccountCreated: React.FC = () => {
   const renderContent = (): JSX.Element => {
     return (
       <main
-        className='container'
-        style={{justifyContent: 'center'}}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          textAlign: 'center',
+          padding: '20px',
+        }}
       >
-        <svg.AccountUserSvg style={{marginBottom: 30}} />
-        <text.H2 style={{marginBottom: 10}}>Account Created!</text.H2>
-        <text.T16 style={{marginBottom: 30}}>
-          Your account had beed created{'\n'}successfully.
+        <svg.AccountUserSvg style={{ marginBottom: 30 }} />
+        <text.H2 style={{ marginBottom: 10 }}>Account Created!</text.H2>
+        <text.T16 style={{ marginBottom: 30 }}>
+          Your account has been created{'\n'}successfully.
         </text.T16>
         <components.Button
-          title='Done'
+          title="Done"
           onClick={() => navigate('/TabNavigator')}
+          containerStyle={{ width: '200px', margin: '0 auto' }}
         />
       </main>
     );
   };
 
   return (
-    <div id='screen'>
+    <div
+      id="screen"
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       {renderBackground()}
       {renderHeader()}
       {renderContent()}

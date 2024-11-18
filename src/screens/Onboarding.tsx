@@ -12,28 +12,29 @@ const onboarding = [
   {
     id: 1,
     title1: 'Welcome to Apitex',
-    title2: 'bank app!',
+    title2: 'Bank App!',
     image: require('../assets/onboarding/01.png'),
     description:
-      'Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.',
+      'Your trusted partner in banking, designed to make managing your finances effortless. Secure, intuitive, and accessible at your fingertips.',
   },
   {
     id: 2,
     title1: 'Get a new card in a',
     title2: 'few clicks!',
-    image: require('../assets/onboarding/01.png'),
+    image: require('../assets/onboarding/02.png'),
     description:
-      'Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.',
+      'Open a new world of financial flexibility! Apply for and receive a personalized card with just a few taps, tailored to meet your needs instantly.',
   },
   {
     id: 3,
     title1: 'Easy payments all',
     title2: 'over the world!',
-    image: require('../assets/onboarding/01.png'),
+    image: require('../assets/onboarding/03.png'),
     description:
-      'Labore sunt culpa excepteur culpa ipsum. Labore occaecat ex nisi mollit.',
+      'Make global payments with ease and security. Whether home or abroad, our app ensures you stay connected to your finances anytime, anywhere.',
   },
 ];
+
 
 export const Onboarding: React.FC = () => {
   const location = useLocation();

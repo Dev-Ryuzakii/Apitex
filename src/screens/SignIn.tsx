@@ -11,11 +11,8 @@ import {components} from '../components';
 
 export const SignIn: React.FC = () => {
   const {pathname} = useLocation();
-
   const location = useLocation();
-
   const navigate = hooks.useAppNavigate();
-
   const [rememberMe, setRememberMe] = React.useState(false);
 
   useEffect(() => {
@@ -37,36 +34,59 @@ export const SignIn: React.FC = () => {
     return <components.Background />;
   };
 
-  const renderHeader = (): JSX.Element => {
-    return <components.Header />;
-  };
-
   const renderContent = (): JSX.Element => {
     return (
       <main
         className='container'
-        style={{marginTop: 52, paddingTop: '18%', paddingBottom: 20, zIndex: 1}}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          padding: '0 20px',
+          zIndex: 1,
+          width: '100%',
+        }}
       >
         <text.H1 style={{marginBottom: 30}}>Welcome Back!</text.H1>
         <custom.InputField
           leftIcon={<svg.EmailSvg />}
           rightIcon={<svg.CheckSvg />}
-          containerStyle={{marginBottom: 10}}
-          placeholder='brileyhenderson@mail.com'
+          containerStyle={{
+            marginBottom: 10,
+            width: '100%',
+            maxWidth: '400px',
+          }}
+          placeholder='Enter your email address'
         />
         <custom.InputField
-          placeholder='••••••••'
+          placeholder='Enter your password'
           clickable={true}
           leftIcon={<svg.PasswordSvg />}
           rightIcon={<svg.EyeOffSvg />}
-          containerStyle={{marginBottom: 14}}
+          containerStyle={{
+            marginBottom: 14,
+            width: '100%',
+            maxWidth: '400px',
+          }}
         />
-        <div style={{...utils.rowCenterSpcBtw(), marginBottom: 30}}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '400px',
+            marginBottom: 30,
+          }}
+        >
           {/* Remember me */}
           <button
             style={{
+              display: 'flex',
+              alignItems: 'center',
               cursor: 'pointer',
-              ...utils.rowCenterSpcBtw(),
             }}
             onClick={() => setRememberMe(!rememberMe)}
           >
@@ -93,10 +113,14 @@ export const SignIn: React.FC = () => {
         </div>
         <components.Button
           title='Sign In'
-          containerStyle={{marginBottom: 14}}
+          containerStyle={{
+            marginBottom: 14,
+            width: '100%',
+            maxWidth: '400px',
+          }}
           onClick={() => navigate('/TabNavigator')}
         />
-        <div style={{...utils.rowCenter(), marginBottom: 40}}>
+        <div style={{marginBottom: 40}}>
           <text.T16 style={{marginRight: 4}}>No account?</text.T16>
           <text.T16
             onClick={() => navigate('/SignUp')}
@@ -105,64 +129,21 @@ export const SignIn: React.FC = () => {
             Register now
           </text.T16>
         </div>
-        <div>
-          <text.T16 style={{marginBottom: 14}}>
-            Sign in with social networks:
-          </text.T16>
-          {/* Socials */}
-          <div
-            style={{
-              ...utils.rowCenterSpcBtw(),
-              marginBottom: 20,
-              width: '100%',
-            }}
-          >
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.FacebookSvg />
-            </div>
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.TwitterSvg />
-            </div>
-            <div
-              style={{
-                width: '31%',
-                borderRadius: 8,
-                padding: '13px 0',
-                ...utils.flexCenter(),
-                backgroundColor: '#FFD9C3',
-              }}
-              onClick={() => {}}
-            >
-              <svg.GoogleSvg />
-            </div>
-          </div>
-        </div>
       </main>
     );
   };
 
   return (
-    <div id='screen'>
+    <div
+      id='screen'
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       {renderBackground()}
-      {renderHeader()}
       {renderContent()}
     </div>
   );

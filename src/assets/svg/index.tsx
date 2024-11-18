@@ -85,6 +85,7 @@ import {TransactionCheckSvg} from './TransactionCheckSvg';
 import {NotificationCheckSvg} from './NotificationCheckSvg';
 import {StatisticExchangeSvg} from './StatisticExchangeSvg';
 import {CalendarStatisticSvg} from './CalendarStatisticSvg';
+import { EyeOnSvg } from './EyeOnSvg';
 
 export const svg = {
   WJSvg,
@@ -112,6 +113,7 @@ export const svg = {
   DollarSvg,
   GoBackSvg,
   EyeOffSvg,
+  EyeOnSvg,
   GoogleSvg,
   RepeatSvg,
   SearchSvg,

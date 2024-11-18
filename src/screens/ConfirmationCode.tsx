@@ -1,21 +1,21 @@
-import {useState, FC, useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
+import { useState, FC, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import {text} from '../text';
-import {utils} from '../utils';
-import {hooks} from '../hooks';
-import {theme} from '../constants';
-import {components} from '../components';
+import { text } from '../text';
+import { utils } from '../utils';
+import { hooks } from '../hooks';
+import { theme } from '../constants';
+import { components } from '../components';
 
 export const ConfirmationCode: FC = () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const navigate = hooks.useAppNavigate();
 
   const [inputs, setInputs] = useState<string[]>(['', '', '', '', '']);
 
   useEffect(() => {
     setTimeout(() => {
-      window.scroll({top: -1, left: 0, behavior: 'smooth'});
+      window.scroll({ top: -1, left: 0, behavior: 'smooth' });
     }, 10);
   }, [pathname]);
 
@@ -27,7 +27,7 @@ export const ConfirmationCode: FC = () => {
     return (
       <components.Header
         goBack={true}
-        title='Verify your phone number'
+        title=""
       />
     );
   };
@@ -38,7 +38,6 @@ export const ConfirmationCode: FC = () => {
         style={{
           marginBottom: 24,
           color: theme.colors.textColor,
-          paddingRight: 20,
         }}
       >
         Enter your OTP code here.
@@ -48,14 +47,21 @@ export const ConfirmationCode: FC = () => {
 
   const renderInputFields = (): JSX.Element => {
     return (
-      <div style={{...utils.rowCenterSpcBtw(), marginBottom: 30}}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '10px',
+          marginBottom: 30,
+        }}
+      >
         {inputs.map((input, index) => (
           <div
             key={index}
             style={{
               display: 'flex',
-              width: '17%',
-              aspectRatio: 1 / 1,
+              width: '60px',
+              height: '60px',
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: 10,
@@ -70,13 +76,14 @@ export const ConfirmationCode: FC = () => {
                 width: '100%',
                 height: '100%',
                 ...theme.fonts.SourceSansPro_400Regular,
-                borderRadius: 600 / 2,
                 border: 'none',
                 backgroundColor: theme.colors.transparent,
                 fontSize: 20,
                 color: theme.colors.mainDark,
+                appearance: 'none',
+                MozAppearance: 'textfield', // Disables up/down arrow buttons in Firefox
               }}
-              type='number'
+              type="number"
               min={0}
               max={9}
             />
@@ -88,14 +95,17 @@ export const ConfirmationCode: FC = () => {
 
   const renderIfDidNotReceiveCode = (): JSX.Element => {
     return (
-      <div style={{marginBottom: 30, ...utils.rowCenter()}}>
-        <text.T16 style={{marginRight: 5}}>
+      <div style={{ marginBottom: 30, textAlign: 'center' }}>
+        <text.T16>
           Didn’t receive the OTP?{' '}
           <button
             style={{
               fontSize: 16,
               cursor: 'pointer',
               color: theme.colors.mainColor,
+              background: 'none',
+              border: 'none',
+              padding: 0,
             }}
           >
             Resend.
@@ -108,8 +118,11 @@ export const ConfirmationCode: FC = () => {
   const renderButton = (): JSX.Element => {
     return (
       <components.Button
-        title='verify'
-        containerStyle={{marginBottom: 20}}
+        title="Verify"
+        containerStyle={{
+          width: '200px',
+          margin: '0 auto',
+        }}
         onClick={() => {
           navigate('/SignUpAccountCreated');
         }}
@@ -119,7 +132,16 @@ export const ConfirmationCode: FC = () => {
 
   const renderContent = (): JSX.Element => {
     return (
-      <main style={{flexGrow: 1, padding: 20, marginTop: 52}}>
+      <main
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          padding: 20,
+        }}
+      >
         {renderDescription()}
         {renderInputFields()}
         {renderIfDidNotReceiveCode()}
@@ -129,7 +151,15 @@ export const ConfirmationCode: FC = () => {
   };
 
   return (
-    <div id='screen'>
+    <div
+      id="screen"
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       {renderBackground()}
       {renderHeader()}
       {renderContent()}

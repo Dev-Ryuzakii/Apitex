@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
-import {utils} from '../utils';
-import {svg} from '../assets/svg';
-import {theme} from '../constants';
+import { utils } from '../utils';
+import { svg } from '../assets/svg';
+import { theme } from '../constants';
 
 type Props = {
   leftIcon?: JSX.Element;
@@ -12,6 +12,8 @@ type Props = {
   containerStyle?: React.CSSProperties;
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
   placeholder?: string;
+  value?: string; // Added value for controlled input
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // Added onChange for controlled input
 };
 
 export const InputField: FC<Props> = ({
@@ -22,6 +24,8 @@ export const InputField: FC<Props> = ({
   rightIcon,
   clickable,
   type = 'text',
+  value, // Destructure value prop
+  onChange, // Destructure onChange prop
 }) => {
   return (
     <div
@@ -37,13 +41,15 @@ export const InputField: FC<Props> = ({
         ...containerStyle,
       }}
     >
-      <div style={{marginRight: 14}}>{leftIcon}</div>
+      <div style={{ marginRight: 14 }}>{leftIcon}</div>
       <input
-        className='input-field'
+        className="input-field"
         autoCapitalize={autoCapitalize}
         placeholder={placeholder}
         maxLength={50}
         type={type}
+        value={value} // Pass value for controlled input
+        onChange={onChange} // Attach onChange handler
         style={{
           width: '100%',
           height: '100%',
